@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ma todolist</title>
+        <style>
+            a {text-decoration: none; color: black;}
+            a:hover {text-decoration: underline;}
+        </style>
+    </head>
+
+    <body>
+        <h1> Liste des taches </h1>
+        <ul>
+          <% for (var i in tasks) { %>
+            <li><%=tasks[i]%> <a href="/delete/<%=i%>">✘</a></li>
+          <% } %>
+        </ul>
+        <% if (tasks) { %>
+        <a href="/clean">Supprimer toutes les taches</a>
+        <% } %>
+        <h2> Ajouter une tache </h2>
+
+        <form action="/add" method="post">
+            <input type='text' name='task'> <input type="submit" name="ajouter" />
+        </form>
+
+    </body>
+</html>

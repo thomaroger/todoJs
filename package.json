@@ -1,0 +1,10 @@
+{
+    "name": "todo",
+    "version": "0.1.0",
+    "dependencies": {
+        "ejs": "0.8.x",
+        "express": "3.1.x"
+    },
+    "author": "troger",
+    "description": "todo"
+}
