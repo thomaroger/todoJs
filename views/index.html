@@ -1,0 +1,29 @@
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div id="text">&nbsp;</div>
+    <input type="text" name="chat" id="msg"><input type="submit" value="Envoyer" id='send'/>
+</body>
+
+    <script>
+        socket = io.connect();
+        socket.on('connected', function (res) {
+            $('#text').html(res.messages);
+        });
+
+        $("#send").click(function(){
+            var data = {'message' : $("#msg").val()};
+            socket.emit('addMessage', data);
+        });
+
+        socket.on('newMessage', function(res){
+            $('#text').html(res);
+        });
+
+    </script>
+
+
+</html>
